@@ -1,0 +1,22 @@
+def quickSort(a: list->int, l, h:int){
+	if(l < h){
+		let ind_part:int = particion(a, l, h);
+		quickSort(a, l , ind_part - 1);
+		quickSort(a, ind_part + 1, h);
+    }
+}
+def partition:int(arr:list->int, b,e:int){
+    let pivot, i:int = arr[e], (b-1);
+    for(let j:int=b; j < e; j++){
+        if(arr[j] <= pivot){
+            i++;
+            let swapTemp:int = arr[i];
+            arr[i] = arr[j];
+            arr[j] = swapTemp;
+        }
+    }
+    let swapTemp:int = arr[i+1];
+    arr[i+1] = arr[e];
+    arr[e] = swapTemp;
+    return i+1;
+}
